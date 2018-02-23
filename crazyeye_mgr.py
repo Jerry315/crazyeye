@@ -1,8 +1,7 @@
-# _*_ coding:utf-8 _*_
-# Auother Jerry
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
 
 import os
-
 
 
 if __name__ == '__main__':
@@ -10,5 +9,6 @@ if __name__ == '__main__':
     import django
     django.setup()
     from backend import main
+
     obj = main.HostManager()
     obj.interactive()

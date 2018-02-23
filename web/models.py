@@ -111,7 +111,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['name',]
 
     def get_full_name(self):
         # The user is identified by their email address
@@ -133,3 +133,44 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
+
+class Session(models.Model):
+    '''生成用户操作session id '''
+    user = models.ForeignKey("UserProfile")
+    bind_host = models.ForeignKey("BindHost")
+    tag = models.CharField(max_length=128,default='n/a')
+    closed = models.BooleanField(default=False)
+    cmd_count = models.IntegerField(default=0)
+    stay_time = models.IntegerField(default=0,help_text="每次刷新自动计算停留时间",verbose_name="停留时长(seconds)")
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '<id:%s user:%s bind_host:%s>' % (self.id, self.user.email, self.bind_host.host)
+
+    class Meta:
+        verbose_name_plural = '审计日志'
+
+class Task(models.Model):
+    """批量任务记录表"""
+    user = models.ForeignKey("UserProfile")
+    task_type_choices = ((0,'cmd'),(1,'file_transfer'))
+    task_type = models.SmallIntegerField(choices=task_type_choices)
+    content = models.TextField(verbose_name="任务内容")
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "%s %s" %(self.task_type,self.content)
+
+class TaskLogDetail(models.Model):
+    task = models.ForeignKey("Task")
+    bind_host = models.ForeignKey("BindHost")
+    result = models.TextField()
+
+    status_choices = ((0,'success'),(1,'failed'),(2,'init'))
+    status = models.SmallIntegerField(choices=status_choices)
+
+    start_date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateTimeField(blank=True,null=True)
+
+    def __str__(self):
+        return "%s %s" %(self.bind_host,self.status)

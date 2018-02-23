@@ -25,7 +25,7 @@ SECRET_KEY = '_dew4b%5fb-a2-$0!v_u-r)ot%p#a#1gt1i%no79c@!ia7b#kp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.7.250']
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'web.apps.WebConfig',
     'web',
 ]
 
@@ -126,3 +125,7 @@ STATICFILES_DIRS = (
 )
 
 AUTH_USER_MODEL = 'web.UserProfile'
+
+AUDIT_LOG_DIR = os.path.join(BASE_DIR,'log')
+
+MULTITASK_SCRIPT = os.path.join(BASE_DIR,'backend/task_runner.py')
