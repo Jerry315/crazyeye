@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
-	<div id="container" class="effect mainnav-lg">
+	<div id="container" class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed">
 		
 		<!--NAVBAR-->
 		<!--===================================================-->
@@ -84,33 +84,7 @@
 											<li>
 												<a href="#" class="media">
 													<div class="media-left">
-														<img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm">
-													</div>
-													<div class="media-body">
-														<div class="text-nowrap">Jackson sent you a message</div>
-														<small class="text-muted">40 minutes ago</small>
-													</div>
-												</a>
-											</li>
-
-											<!-- Dropdown list-->
-											<li>
-												<a href="#" class="media">
-													<div class="media-left">
-														<img src="img/av6.png" alt="Profile Picture" class="img-circle img-sm">
-													</div>
-													<div class="media-body">
-														<div class="text-nowrap">Donna sent you a message</div>
-														<small class="text-muted">5 hours ago</small>
-													</div>
-												</a>
-											</li>
-
-											<!-- Dropdown list-->
-											<li>
-												<a href="#" class="media">
-													<div class="media-left">
-														<img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm">
+														<img src="/static/img/av4.png" alt="Profile Picture" class="img-circle img-sm">
 													</div>
 													<div class="media-body">
 														<div class="text-nowrap">Lucy sent you a message</div>
@@ -384,7 +358,7 @@
 								<li>
 									<!--Spain-->
 									<a href="#">
-										<img class="lang-flag" src="img/flags/spain.png" alt="Spain">
+										<img class="lang-flag" src="/static/img/flags/spain.png" alt="Spain">
 										<span class="lang-id">ES</span>
 										<span class="lang-name">Espa&ntilde;ol</span>
 									</a>
@@ -619,6 +593,7 @@
 											<i class="fa fa-desktop"></i>
 										</a>
 									</div>
+                                </div>
 
 								<!--================================-->
 								<!--End widget-->
@@ -628,114 +603,11 @@
 					</div>
 					<!--================================-->
 					<!--End menu-->
+                </nav>
 
-				</div>
             </nav>
 			<!--===================================================-->
 			<!--END MAIN NAVIGATION-->
-			
-			<!--ASIDE-->
-			<!--===================================================-->
-			<aside id="aside-container">
-				<div id="aside">
-					<div class="nano">
-						<div class="nano-content">
-							
-							<!--Nav tabs-->
-							<!--================================-->
-							<ul class="nav nav-tabs nav-justified">
-								<li class="active">
-									<a href="#demo-asd-tab-1" data-toggle="tab">
-										<i class="fa fa-comments"></i>
-										<span class="badge badge-purple">7</span>
-									</a>
-								</li>
-								<li>
-									<a href="#demo-asd-tab-2" data-toggle="tab">
-										<i class="fa fa-info-circle"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#demo-asd-tab-3" data-toggle="tab">
-										<i class="fa fa-wrench"></i>
-									</a>
-								</li>
-                                <li>
-									<a href="#demo-asd-tab-4" data-toggle="tab">
-										<i class="label label-success">New</i>
-									</a>
-								</li>
-							</ul>
-							<!--================================-->
-							<!--End nav tabs-->
-
-
-
-							<!-- Tabs Content -->
-							<!--================================-->
-							<div class="tab-content">
-
-								<!--First tab (Contact list)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade in active" id="demo-asd-tab-1">
-									<h4 class="pad-hor text-thin">
-										First tab
-									</h4>
-                                    <div class="pad-all">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-									    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-									    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-									    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsanet iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                                    </div>
-
-								</div>
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<!--End first tab (Contact list)-->
-
-
-								<!--Second tab (Custom layout)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade" id="demo-asd-tab-2">
-
-									<!--Monthly billing-->
-									<div class="pad-all">
-										<h4 class="text-lg mar-no">Monthly Billing</h4>
-										    Second tab
-									</div>
-                                    <div class="pad-all">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-									    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-									    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-									    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsanet iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                                    </div>
-								</div>
-								<!--End second tab (Custom layout)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-
-								<!--Third tab (Settings)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade" id="demo-asd-tab-3">
-									<h4 class="pad-hor text-thin">
-                                        Third tab
-                                    </h4>
-                                    <div class="pad-all">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-									    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-									    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-									    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsanet iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                                    </div>
-								</div>
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<!--Third tab (Settings)-->
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</aside>
-			<!--===================================================-->
-			<!--END ASIDE-->
 
 		</div>
 

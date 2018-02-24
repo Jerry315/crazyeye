@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, logout, login
 from django.conf import settings
 import os, re, json
 from web import models
-
+from backend.task_manager import MultiTaskManager
 from backend import audit
 
 
@@ -47,7 +47,7 @@ def user_audit(request):
 def audit_log_date(request, log_date):
     log_date_path = '%s/%s' % (settings.AUDIT_LOG_DIR, log_date)
     log_file_dirs = os.listdir(log_date_path)
-    session_ids = [re.search('\d+', i).groups() for i in log_file_dirs]
+    session_ids = [re.search('\d+', i).group() for i in log_file_dirs]
     session_objs = models.Session.objects.filter(id__in=session_ids)
     return render(request, 'user_audit_file_list.html', locals())
 
@@ -87,4 +87,14 @@ def multitask_result(request):
 
 @login_required
 def multitask(request):
-    pass
+    print("--->",request.POST)
+    task_data = json.loads(request.POST.get('task_data'))
+    print("--->selected hosts",task_data)
+
+    task_obj = MultiTaskManager(request)
+    selected_hosts = list(task_obj.task.tasklogdetail_set.all().values('id','bind_host__host__ip_addr',
+                                                                       'bind_host__host__hostname',
+                                                                       'bind_host__remote_user__username'))
+    return HttpResponse(json.dumps({'task_id':task_obj.task.id,'selected_hosts':selected_hosts}))
+
+

@@ -129,3 +129,5 @@ AUTH_USER_MODEL = 'web.UserProfile'
 AUDIT_LOG_DIR = os.path.join(BASE_DIR,'log')
 
 MULTITASK_SCRIPT = os.path.join(BASE_DIR,'backend/task_runner.py')
+
+DOWNLOAD_DIR = os.path.join(BASE_DIR,'downloads')

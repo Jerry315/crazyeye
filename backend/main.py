@@ -68,6 +68,7 @@ class HostManager(object):
                                 session_obj = self.get_session_id(bind_host, ssh_tag)
                                 monitor_script = subprocess.Popen("sh /CrazyEye/backend/session_tracker.sh %s %s" % (ssh_tag, session_obj.id),
                                                                   shell=True,
+                                                                  stdin=subprocess.PIPE,
                                                                   stdout=subprocess.PIPE,
                                                                   stderr=subprocess.PIPE)
                                 subprocess.run('sshpass -p %s ssh %s@%s -E %s -o StrictHostKeyChecking=no' % (
