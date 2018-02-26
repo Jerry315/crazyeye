@@ -42,7 +42,7 @@
 						<li class="dropdown">
 							<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 								<i class="fa fa-envelope fa-lg"></i>
-								<span class="badge badge-header badge-warning">9</span>
+                                <span class="badge badge-header badge-warning"></span>
 							</a>
 
 							<!--Message dropdown menu-->
@@ -116,7 +116,7 @@
 						<li class="dropdown">
 							<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 								<i class="fa fa-bell fa-lg"></i>
-								<span class="badge badge-header badge-danger">5</span>
+                                <span class="badge badge-header badge-danger"></span>
 							</a>
 
 							<!--Notification dropdown menu-->
@@ -315,9 +315,9 @@
 						<li class="dropdown">
 							<a id="demo-lang-switch" class="lang-selector dropdown-toggle" href="#" data-toggle="dropdown">
 								<span class="lang-selected">
-									<img class="lang-flag" src="/static/img/flags/united-kingdom.png" alt="English">
-									<span class="lang-id">EN</span>
-									<span class="lang-name">English</span>
+									<img class="lang-flag" src="/static/img/flags/china.png" alt="China">
+									<span class="lang-id">CN</span>
+									<span class="lang-name">China</span>
 								</span>
 							</a>
 
@@ -529,7 +529,7 @@
 						
 									<!--Menu list item-->
 									<li class="active-link">
-										<a href="#">
+                                        <a href="/">
 											<i class="fa fa-plane"></i>
 											<span class="menu-title">首页</span>
 										</a>
@@ -575,6 +575,17 @@
 											<li class="active-link"><a href="{% url 'multitask_file_transfer' %}">批量文件</a></li>
 											
 										</ul>
+                                        <a href="#">
+                                            <i class="fa fa-th"></i>
+                                            <span class="menu-title">项目部署</span>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse in">
+                                            <li><a href="{% url 'task_update' %}">计划任务</a></li>
+                                            <li class="active-link"><a href="{% url 'task_control' %}">版本控制</a></li>
+
+                                        </ul>
 									</li>
 						
 									<li class="list-divider"></li>

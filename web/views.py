@@ -10,7 +10,7 @@ from backend import audit
 
 def json_date_handler(obj):
     if hasattr(obj, 'isoformat'):
-        return obj.strftime("%y-%m-%d %T")
+        return obj.strftime("%Y-%m-%d %T")
 
 
 @login_required
@@ -98,3 +98,11 @@ def multitask(request):
     return HttpResponse(json.dumps({'task_id':task_obj.task.id,'selected_hosts':selected_hosts}))
 
 
+@login_required
+def task_update(request):
+    pass
+
+
+@login_required
+def task_control(request):
+    pass

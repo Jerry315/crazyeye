@@ -11,12 +11,12 @@
                     <span class="badge badge-primary">{{ request.user.bind_hosts.count }}</span>
                 </a>
                 <ol class="hide">
-                    {% for bind_host in request.user.bind_host.all %}
+                    {% for bind_host in request.user.bind_hosts.all %}
                         <li><input type="checkbox" select_host='true' value="{{ bind_host.id }}"/>{{ bind_host.hostname }}({{ bind_host.host.ip_addr }})@{{ bind_host.remote_user.username }}</li>
                     {% endfor %}
                 </ol>
                 {% for host_group in request.user.host_groups.select_related %}
-                    <a onclick="HostListDisplaytoggle(this)" class="list-group-item" href="#">
+                    <a onclick="HostListDisplayToggle(this)" class="list-group-item" href="#">
                         <input type="checkbox" onclick="SelectGroup(this)"/>
                         {{ host_group.name }}
                         <span class="badge badge-primary">{{ host_group.bind_hosts.count }}</span>

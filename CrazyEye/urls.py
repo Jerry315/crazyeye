@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^multitask/file_transfer/$', views.multitask_file_transfer, name="multitask_file_transfer"),
     url(r'^multitask/$', views.multitask, name="multitask"),
     url(r'^multitask/result/$', views.multitask_result, name="task_result"),
+    url(r'^task_update/$', views.task_update, name='task_update'),
+    url(r'^task_control/$', views.task_control, name='task_control'),
 ]

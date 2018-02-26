@@ -12,6 +12,8 @@ class MultiTaskManager(object):
     def __init__(self, request):
         self.request = request
 
+        self.call_task()
+
     def task_parser(self):
         '''解析任务'''
         self.task_data = json.loads(self.request.POST.get('task_data'))
@@ -40,7 +42,7 @@ class MultiTaskManager(object):
                                                       result='init...',
                                                       status=2))
         models.TaskLogDetail.objects.bulk_create(sub_task_objs)
-        task_script_obj = subprocess.Popen("python %s %s" % (conf.settings.MULTITASK_SCRIPT, task_obj.id),
+        task_script_obj = subprocess.Popen("python3 %s %s" % (conf.settings.MULTITASK_SCRIPT, task_obj.id),
                                            shell=True, stdout=subprocess.PIPE)
         self.task = task_obj
 
@@ -59,6 +61,6 @@ class MultiTaskManager(object):
         for host_id in self.task_data['selected_host_ids']:
             sub_task_objs.append(models.TaskLogDetail(task=task_obj, bind_host_id=host_id, result='init...', status=2))
         models.TaskLogDetail.objects.bulk_create(sub_task_objs)
-        task_script_obj = subprocess.Popen("python %s %s" % (conf.settings.MULTITASK_SCRIPT, task_obj.id),
+        task_script_obj = subprocess.Popen("python3 %s %s" % (conf.settings.MULTITASK_SCRIPT, task_obj.id),
                                            shell=True, stdout=subprocess.PIPE)
         self.task = task_obj
